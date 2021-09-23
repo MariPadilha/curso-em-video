@@ -1,0 +1,66 @@
+from random import choice
+from time import sleep
+import pyautogui
+lista = ['Ability', 'Absence', 'Absurdity', 'Accelerated',
+         'Acceptable', 'Accessible', 'Accessory', 'Accidentally',
+         'Accomplishment', 'Account', 'Accountant', 'Accuracy', 'Accurate',
+         'Accustomed', 'Achieved', 'Acoustics', 'Acquire', 'Acquisition',
+         'Additional', 'Advantage', 'Adventure', 'Advertisement', 'Affordable',
+         'Agriculture', 'Airline', 'Allergy', 'Allowance', 'Although', 'Altitude',
+         'Ambitious', 'Analyst', 'Ancestors', 'Anniversary', 'Anonymous',
+         'Anthropologist', 'Anticipate', 'Antiquated', 'Anxious', 'Apologies',
+         'Appearance', 'Apprentice', 'Approaching', 'Appropriate', 'Archaeologist',
+         'Architecture', 'Archive', 'Arrangements', 'Aspiring', 'Assessment',
+         'Associate', 'Assumption', 'Asthma', 'Astonishing', 'Athlete', 'Atmosphere',
+         'Attorney', 'Audience', 'Australian', 'Authentic', 'Authority', 'Autopilot',
+         'Auxiliary', 'Average', 'Aviation', 'Awareness', 'Awful', 'Backache',
+         'Background', 'Ballerina', 'Barbecue', 'Bargain', 'Basement', 'Basically',
+         'Beautifully', 'Beginning', 'Behavior', 'Believe', 'Beyond', 'Biggest',
+         'Biodegradable', 'Biography', 'Biologist', 'Bionic', 'Birthday',
+         'Bitterness', 'Blinding', 'Blindness', 'Boiling', 'Boundary',
+         'Bouquet', 'Brainstorm', 'Bravery', 'Breakthrough', 'Breathless',
+         'Brilliance', 'Broadband', 'Broadcast', 'Brought', 'Bruises',
+         'Building', 'Business', 'Cabbage', 'Caffeine', 'Calmness',
+         'Campaign', 'Candidate', 'Caption', 'Career', 'Caribbean',
+         'Carrying', 'Catchy', 'Cautious', 'Certainly', 'Challenging', 'Change',
+         'Characteristics', 'Cheerful', 'Chemical', 'Chewing', 'Childhood',
+         'Choreographer', 'Circumstance', 'Cleanliness', 'Clearly', 'Climate',
+         'Clothing', 'Coherence', 'Cohesion', 'Collapse', 'Colleague', 'Comedian',
+         'Comfortable', 'Comment', 'Commitment', 'Committee', 'Community',
+         'Competition', 'Competitor', 'Completion', 'Comprehensive', 'Conclusion',
+         'Conditional', 'Conditioner', 'Connection', 'Conscientious', 'Conscious',
+         'Consequently', 'Conservationist', 'Consulate', 'Consultancy', 'Contagious',
+         'Container', 'Contextualize', 'Continuing', 'Cooling', 'Cooperative',
+         'Cosmopolitan', 'Countable', 'Courtyard', 'Coverage', 'Creativity',
+         'Critically', 'Crocodile', 'Crowded', 'Crutches', 'Cultural', 'Cumbersome',
+         'Customer', 'Dazzling', 'Dealing', 'Declutter', 'Decouple', 'Deficiency',
+         'Definitely', 'Delayed', 'Denmark', 'Description', 'Desperate', 'Dessert',
+         'Development', 'Dilemma', 'Disadvantage', 'Disappear', 'Disappointing',
+         'Discovery', 'Disease', 'Disguise', 'Disprove', 'Distribution', 'Downside',
+         'Drawback', 'Drumming', 'Dutiful', 'Dwelling', 'Dynamic', 'Earthen',
+         'Eastern', 'Effective', 'Elderly', 'Electrification', 'Emotional',
+         'Employee', 'Enchantment', 'Encounter', 'Encourage', 'Encyclopedia',
+         'Endangered', 'Enliven', 'Enough', 'Entertaining', 'Enthusiasm', 'Entrepreneur',
+         'Entryway', 'Environmentalist', 'Escape', 'Essential', 'Establish',
+         'Ethical', 'Ethnicity', 'Evolution', 'Exactly', 'Examiner',
+         'Excavation', 'Exceed', 'Excitement', 'Exclamation', 'Exhausted',
+         'Exhibition', 'Existential', 'Exotic', 'Expansion', 'Expedition',
+         'Experience', 'Explorer', 'Explosion', 'Expression', 'Extract',
+         'Extraordinary', 'Extreme', 'Fairness', 'Fascinating', 'Fashionable',
+         'Fatigue', 'Feature', 'Fighter', 'Financial', 'Fingerprints',
+         'Fisherwomen', 'Flexible', 'Flight', 'Following', 'Foreign',
+         'Forgotten', 'Fortunately', 'Foundation', 'Freestyle', 'Friendliness',
+         'Fueled', 'Further', 'Fusion', 'Futuristic', 'Galaxy', 'Gardener', 'Generational', 'Generous', 'Genuine', 'Geography', 'Giggled', 'Giraffe', 'Glamour', 'Gorgeous', 'Government', 'Habitat', 'Hemoglobin', 'Haitian', 'Handling', 'Happiness', 'Harmful', 'Headline', 'Healing', 'Healthier', 'Hidden', 'Highlight', 'Hiking', 'Hilarious', 'Historian', 'Hopefully', 'Hydrogen', 'Hypoxia', 'Idealistic', 'Identical', 'Identity', 'Imaginary', 'Immediately', 'Immigration', 'Immunity', 'Impossible', 'Improvement', 'Inaction', 'Incidentally', 'Inclusion', 'Increase', 'Individuality', 'Infectious', 'Infrastructure', 'Ingenious', 'Initiative', 'Injection', 'Injury', 'Insecure', 'Insensitive', 'Insight', 'Inspirational', 'Instead', 'Insurance', 'Intermediate', 'Internship', 'Interpret', 'Interview', 'Introductory', 'Inventiveness', 'Involvement', 'Irrigation', 'Island', 'Jewelry', 'Jumbled', 'Kayaking', 'Kilometers', 'Kindness', 'Knowledge', 'Laughing', 'Learning', 'Leather', 'Leisure', 'Length', 'Lifestyle', 'Likelihood', 'Lithium', 'Liveable', 'Lively', 'Logically', 'Luggage', 'Luxurious', 'Magician', 'Maintenance', 'Management', 'Manufacturer', 'Marathon', 'Marvelous', 'Mathematical', 'Matter', 'Meanwhile', 'Measure', 'Mechanic', 'Melancholy', 'Merchant', 'Methodology', 'Microfiber', 'Mighty', 'Minimalism', 'Minimize', 'Minimum', 'Minority', 'Missionary', 'Mistake', 'Mongoose', 'Monologue', 'Monsoon', 'Monthly', 'Moroccan', 'Mortgage', 'Movement', 'Multiple', 'Multitasking', 'Musician', 'Mustard', 'Mutton', 'Mysteries', 'Nearby', 'Necessity', 'Negotiate', 'Networking', 'Nevertheless', 'Newlyweds', 'Nightlife', 'Nightmare', 'Nitrogen', 'Nothing', 'Novelist', 'Nozzle', 'Nurture', 'Obvious', 'Occasionally', 'Occupancy', 'Octopus', 'Official', 'Offshore', 'Offspring', 'Olympics', 'Ongoing', 'Opportunity', 'Orchestra', 'Originality', 'Outage', 'Outgoing', 'Outlandish', 'Overseas', 'Oversee', 'Overview', 'Overwhelmed', 'Oxygen', 'Packaging', 'Parachute', 'Paralyzed', 'Parish', 'Partnership', 'Pattern', 'Peanuts', 'Peculiar', 'Perseverance', 'Personalization', 'Persuasion', 'Petition', 'Phenomenon', 'Philosopher', 'Photograph', 'Phrasal', 'Physical', 'Physician', 'Picturesque', 'Pineapple', 'Pioneer', 'Poisoning', 'Politician', 'Pollinate', 'Popularity', 'Portrait', 'Possession', 'Possibility', 'Pouring', 'Powerful', 'Practicing', 'Preference', 'Prehistoric', 'Premise', 'Pressure', 'Previous', 'Privacy', 'Probable', 'Professionalism', 'Profitable', 'Promising', 'Prosperous', 'Publishing', 'Punctuality', 'Purchase', 'Purpose', 'Quotation', 'Radiographer', 'Rarely', 'Reaching', 'Reasonable', 'Reassurance', 'Receipt', 'Recipe', 'Recruitment', 'Recycling', 'Reflection', 'Refugee', 'Reggae', 'Relationship', 'Release', 'Religion', 'Repeatedly', 'Repercussion', 'Requirement', 'Rescue', 'Research', 'Reservoir', 'Reside', 'Resistance', 'Resource', 'Responsibility', 'Reusable', 'Reveal', 'Review', 'Revolutionize', 'Reward', 'Rhythmic', 'Richness', 'Rigorous', 'Roaming', 'Rousing', 'Russian', 'Sadness', 'Salvage', 'Sanctuary', 'Sanitization', 'Satisfaction', 'Satisfied', 'Scenery', 'Scientist', 'Scrambled', 'Seafood', 'Separate', 'Seriously', 'Severely', 'Shampoo', 'Shelter', 'Shocking', 'Shortage', 'Shouting', 'Sickness', 'Sincerely', 'Skydiving', 'Skyscraper', 'Smartphone', 'Snapshot', 'Snorkeling', 'Sociable', 'Society', 'Sophistication', 'Southern', 'Spacecraft', 'Speaking', 'Specialist', 'Specialization', 'Species', 'Spectacular', 'Speculating', 'Sportswear', 'Spotlight', 'Squirrels', 'Staggering', 'Stainless', 'Stargazing', 'Statement', 'Stimulate', 'Stimuli', 'Stitches', 'Stopover', 'Straightaway', 'Strawberry', 'Streamline', 'Subscription', 'Successful', 'Sufficient', 'Suitable', 'Summarize', 'Sunscreen', 'Supplier', 'Supposed', 'Surgeon', 'Surroundings', 'Survival', 'Sustainable', 'Swallowing', 'Switched', 'Sword', 'Taxpayer', 'Technique', 'Technology', 'Terrific', 'Terrifying', 'Theater', 'Theme', 'Theoretical', 'Therefore', 'Thermal', 'Third', 'Thoroughly', 'Thought', 'Thousand', 'Thread', 'Threatening ', 'Thrilling ', 'Thriving ', 'Through ', 'Timetable ', 'Tiredness ', 'Together ', 'Toiletry ', 'Tough ', 'Transmission ', 'Treasure ', 'Treatment ', 'Troubleshooting ', 'Truthful ', 'Ultimately', 'Ultraviolet', 'Unbiased ', 'Unbreakable ', 'Vacancy ', 'Vacationers', 'Vaccination ', 'Version ', 'Virtue ', 'Visible', 'Volcanoes ', 'Vulnerable ', 'Wandered ', 'Wealth ', 'Weather ', 'Weaver ', 'Weigh ', 'Weird ', 'Western ', 'Whereas ', 'Whole ', 'Wilderness ', 'Wildlife ', 'Withdraw ', 'Wonderful ', 'Wrestling ', 'Yacht ', 'Yourselves', 'Zombie ']
+while True:
+    n = choice(lista)
+    print(n)
+    pyautogui.click(x=795, y=754)
+    sleep(1)
+    pyautogui.click(x=405, y=368)
+    pyautogui.click(x=185, y=373)
+    pyautogui.write(n)
+    pyautogui.click(x=180, y=487)
+    j = input()
+    if j == '0':
+        break
+print('bom treino')
